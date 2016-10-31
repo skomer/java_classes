@@ -34,6 +34,17 @@ public class NhsService {
     return patientCount() == waitingList.length;
   }  
 
+  public void treatPatient(Patient patient) {
+    if (waitingListEmpty()) {
+      return;
+    }
+    int lastEmptyIndex = patientCount() - 1;
+    waitingList[lastEmptyIndex] = null;
+  }
+
+  public boolean waitingListEmpty() {
+    return patientCount() == 0;
+  }
 
 
 

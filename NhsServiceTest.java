@@ -36,6 +36,19 @@ public class NhsServiceTest {
     assertEquals(43, nhsService.patientCount());
   }
 
+  @Test
+  public void listDecreasesAfterTreatment() {
+    for (int i = 0; i < 43; i++) {
+      nhsService.addPatient(patient);
+    }
+    assertEquals(43, nhsService.patientCount());
+
+    for (int i = 0; i < 5; i++) {
+      nhsService.treatPatient(patient);
+    }
+    assertEquals(38, nhsService.patientCount());
+  }
+
 
 
 }
