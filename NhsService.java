@@ -23,13 +23,32 @@ public class NhsService {
   }
 
   public void addPatient(Patient patient) {
-
-
+    if (waitingListFull()) {
+      return;
+    }
     int nextEmptyIndex = patientCount();
     waitingList[nextEmptyIndex] = patient;
   }
+
+  public boolean waitingListFull() {
+    return patientCount() == waitingList.length;
+  }  
 
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

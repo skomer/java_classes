@@ -28,5 +28,21 @@ public class NhsServiceTest {
     assertEquals(1, nhsService.patientCount());
   }
 
+  @Test
+  public void cantJoinWhenListFull() {
+    for (int i = 0; i < 100; i++) {
+      nhsService.addPatient(patient);
+    }
+    assertEquals(43, nhsService.patientCount());
+  }
+
+
 
 }
+
+
+
+
+
+
+
